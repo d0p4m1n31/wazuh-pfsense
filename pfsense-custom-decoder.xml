@@ -1,0 +1,8 @@
+<decoder name="pfsense-custom">
+  <prematch>^\d \d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d.\d\d\d\d\d\d\p\d\d:\d\d</prematch>
+</decoder>
+<decoder name="pfsense-custom_router">
+  <parent>pfsense-custom</parent>
+  <regex offset="after_parent">^(\.+) filterlog \d\d\d\d\d - - \d\d\d,,,\d\d\d\d\d\d\d\d\d\d,\w\w\w\w\w\w\d,\w\w\w\w\w,(\w\w\w\w),(\.+),\d,\dx\d,,\d\d,\d\d\d\d\d,\d,\w\w\w\w,\d\d,(\.+),\d\d,(\.+),(\.+),</regex>
+  <order>router,firewallaction,direction,protocol,srcip,dstip</order>
+</decoder>
